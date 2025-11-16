@@ -175,7 +175,9 @@
         navigator.clipboard
           .writeText(email)
           .then(() =>
-            alert("이메일 주소가 복사되었습니다!\n원하는 곳에 붙여넣어 보세요!")
+            alert(
+              "이메일 주소가 복사되었습니다 >.<\n원하는 곳에 붙여넣어 보세요!"
+            )
           )
           .catch(() => alert("복사 실패.\n브라우저 설정을 확인해주세요."));
       }
