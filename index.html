@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>에잇 EiGHT</title>
+<style>
+@font-face {
+    font-family: 'PyeongchangPeace';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'RoundedFixedsys';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+body {
+  font-family: 'RoundedFixedsys';
+  background: #fffaf8; /* 부드러운 연핑크베이지+화이트 */
+  text-align: center;
+  padding: 80px 20px;
+  color: #5a3f4d; /* 제목과 버튼 대비를 위해 살짝 진하게 */
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* 별 */
+.star {
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* 타이틀 */
+h1 {
+  margin-bottom: 25px;
+  font-family: 'PyeongchangPeace';
+  font-weight: 700;
+  color: #ffbcd9; /* 연핑크로 부드럽게 */
+  font-size: 58px;
+  text-shadow: 2px 2px 15px rgba(255,192,203,0.5), 0 0 12px rgba(255,245,235,0.25);
+  position: relative;
+  animation: floatTitle 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-10px);}
+}
+
+h2 {
+  margin-bottom: 60px;
+  font-family: 'PyeongchangPeace';
+  font-weight: 300;
+  font-size: 22px;
+  color: #876269; /* 살짝 톤 다운된 핑크 */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(255,182,193,0.25);
+  z-index: 2;
+  position: relative;
+}
+
+/* 버튼 */
+.link-btn { 
+  width: 260px; 
+  margin: 14px auto; 
+  padding: 16px 22px; 
+  background: #ffe8f0; /* 연핑크톤 버튼 */
+  border-radius: 28px; 
+  border: 2px solid #ffdce4; 
+  display: block; 
+  text-decoration: none; 
+  color: #5a3f4d; 
+  font-size: 18px; 
+  font-family: 'RoundedFixedsys'; 
+  font-weight: 700; 
+  box-shadow: 0 10px 20px rgba(255,200,220,0.3); 
+  transition: all 0.4s ease; 
+  position: relative; 
+  overflow: hidden; 
+  z-index: 2; 
+} 
+  
+.link-btn::after { 
+  content: ''; 
+  position: absolute; 
+  top: 0; left: -75%; 
+  width: 50%; 
+  height: 100%; 
+  background: linear-gradient(120deg, rgba(255,255,255,0.6), rgba(255,255,255,0.1), rgba(255,255,255,0.6)); 
+  transform: skewX(-25deg); 
+  transition: all 0.5s ease; 
+} 
+
+.link-btn:hover::after { left: 150%; } 
+
+.link-btn:hover { 
+  background: #ffdce7; 
+  transform: translateY(-6px) scale(1.05); 
+  box-shadow: 0 14px 25px rgba(255,180,200,0.35); 
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8);}
+  50% { opacity: 1; transform: scale(1.4);}
+}
+</style>
+</head>
+<body>
+<h1>에잇 EiGHT</h1>
+<h2>@eightforeight08</h2>
+
+<a class="link-btn" href="https://www.instagram.com/eightforeight08" target="_blank">인스타그램</a>
+<a class="link-btn" href="https://youtube.com/channel/UCh1pBw4VvwGskJsRPrFSaVw" target="_blank">유튜브</a>
+<a class="link-btn" href="https://www.tiktok.com/@eightforeight08" target="_blank">틱톡</a>
+<a class="link-btn" href="#" onclick="copyEmail()">이메일 주소 복사하기</a>
+
+<script>
+function copyEmail() {
+  const email = "eightforeight08@gmail.com"; 
+  navigator.clipboard.writeText(email)
+    .then(() => alert("이메일 주소가 복사되었습니다!"))
+    .catch(() => alert("복사 실패. 브라우저 설정을 확인해주세요."));
+}
+
+// 🌟 랜덤 별
+const colors = ['#fff9c4','#ffe4ec','#e0f7fa','#fce4ec','#e8eaf6']; 
+const numStars = 130;
+for (let i=0;i<numStars;i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random()*12 +5;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.top = Math.random()*100+'%';
+  star.style.left = Math.random()*100+'%';
+  star.style.background = colors[Math.floor(Math.random()*colors.length)];
+  star.style.opacity = Math.random()*0.6+0.3;
+  star.style.animation = `twinkle ${Math.random()*3 +2}s infinite alternate`;
+  star.style.zIndex = 1;
+  document.body.appendChild(star);
+}
+</script>
+</body>
+</html>
