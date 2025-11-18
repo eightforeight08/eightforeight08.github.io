@@ -142,6 +142,21 @@
           transform: scale(1.4);
         }
       }
+
+      /* 카운터 스타일 추가 */
+      .counter-box {
+        margin-top: 40px;
+        font-size: 14px;
+        opacity: 0.8;
+        letter-spacing: 1px;
+      }
+      .counter-num {
+        color: #ff8a80; /* 포인트 컬러 (살구색) */
+        font-family: "RoundedFixedsys";
+        font-weight: bold;
+        margin-left: 5px;
+      }
+
     </style>
   </head>
   <body>
@@ -168,6 +183,11 @@
       >틱톡 Tiktok</a
     >
     <a class="link-btn" href="#" onclick="copyEmail()">이메일 Email</a>
+    <div class="counter-box">
+        VISITORS <span id="busuanzi_value_site_pv" class="counter-num"><i class="fa fa-spinner fa-spin"></i></span>
+    </div>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script>
       function copyEmail() {
